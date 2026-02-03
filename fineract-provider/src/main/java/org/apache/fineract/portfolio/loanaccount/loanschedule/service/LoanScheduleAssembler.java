@@ -314,8 +314,10 @@ public class LoanScheduleAssembler {
             calculatedRepaymentsStartingFromDate = deriveFirstRepaymentDate(loanType, repaymentEvery, expectedDisbursementDate,
                     repaymentPeriodFrequencyType, loanProduct.getMinimumDaysBetweenDisbursalAndFirstRepayment(), calendar, submittedOnDate,
                     repaymentStartDateType);
-            // If calculated repayment start date does not match due to minimum days between disbursal and first
-            // repayment rule, we set repaymentsStartingFromDate (which will be used as seed date later)
+            // If calculated repayment start date does not match due to minimum days between
+            // disbursal and first
+            // repayment rule, we set repaymentsStartingFromDate (which will be used as seed
+            // date later)
             if (!tmpCalculatedRepaymentsStartingFromDate.equals(calculatedRepaymentsStartingFromDate)) {
                 repaymentsStartingFromDate = calculatedRepaymentsStartingFromDate;
             }
@@ -748,8 +750,7 @@ public class LoanScheduleAssembler {
         final MathContext mc = MoneyHelper.getMathContext();
         HolidayDetailDTO detailDTO = new HolidayDetailDTO(isHolidayEnabled, holidays, workingDays);
 
-        LoanScheduleGenerator loanScheduleGenerator = this.loanScheduleFactory.create(loanApplicationTerms.getLoanScheduleType(),
-                loanApplicationTerms.getInterestMethod());
+        LoanScheduleGenerator loanScheduleGenerator;
         if (loanApplicationTerms.isEqualAmortization()) {
             if (loanApplicationTerms.getInterestMethod().isDecliningBalance()) {
                 final LoanScheduleGenerator decliningLoanScheduleGenerator = this.loanScheduleFactory
